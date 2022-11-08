@@ -17,7 +17,7 @@ const Home = () => {
       <div className="w-4/5 mx-auto mt-4 mb-8">
         <Link to="/services">
           <Button className="mx-auto" gradientDuoTone="greenToBlue">
-            See More
+            See All
           </Button>
         </Link>
       </div>
