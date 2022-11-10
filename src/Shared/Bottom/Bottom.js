@@ -1,5 +1,7 @@
 import { Footer } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
+import img from "../img/footer.png";
 
 const Bottom = () => {
   return (
@@ -8,15 +10,20 @@ const Bottom = () => {
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand
             href="https://flowbite.com"
-            src="https://flowbite.com/docs/images/logo.svg"
+            src={img}
             alt="Flowbite Logo"
             name="Green Focus"
           />
           <Footer.LinkGroup>
-            <Footer.Link href="#">About</Footer.Link>
-            <Footer.Link href="#">Privacy Policy</Footer.Link>
-            <Footer.Link href="#">Licensing</Footer.Link>
-            <Footer.Link href="#">Contact</Footer.Link>
+            <Footer.Link>
+              <Link to="/services">Services</Link>
+            </Footer.Link>
+            <Footer.Link>
+              <Link to="/blogs">Blogs</Link>Privacy Policy
+            </Footer.Link>
+            <Footer.Link>
+              <Link to="/about">About us</Link>Licensing
+            </Footer.Link>
           </Footer.LinkGroup>
         </div>
         <Footer.Divider />

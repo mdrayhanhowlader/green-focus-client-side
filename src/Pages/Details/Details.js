@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Details = () => {
@@ -54,9 +54,6 @@ const Details = () => {
           <p>{details}</p>
           <h5 className="font-semibold">Price: ${price}</h5>
           <h6>Taken By:{seller}</h6>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Give A Review</button>
-          </div>
         </div>
       </div>
       <div>
@@ -75,12 +72,11 @@ const Details = () => {
             </div>
           </form>
         ) : (
-          <Link
-            className="text-center text-green-500 font-semibold text-lg"
-            to="/login"
-          >
-            Please Login!!
-          </Link>
+          <div className="w-4/5 mx-auto mt-8">
+            <Link className="text-green-500 font-semibold text-lg" to="/login">
+              Want to place a Review? Please Login!!
+            </Link>
+          </div>
         )}
       </div>
       <div className="review-section w-4/5 mx-auto my-12">

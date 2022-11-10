@@ -55,8 +55,6 @@ const router = createBrowserRouter([
             <Reviews></Reviews>
           </PrivateRoute>
         ),
-        // loader: () =>
-        //   fetch(""),
       },
       {
         path: "/edit/:id",

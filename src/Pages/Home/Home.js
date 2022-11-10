@@ -23,7 +23,7 @@ const Home = () => {
           </Button>
         </Link>
       </div>
-      <div className="About w-4/5 mx-auto my-12">
+      <div className="About w-4/5 mx-auto">
         <Dreams></Dreams>
       </div>
       <div className="w-4/5 mx-auto my-36">
