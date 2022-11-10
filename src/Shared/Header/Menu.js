@@ -59,6 +59,9 @@ const Menu = () => {
           <Navbar.Link>
             <Link to="/reviews">Reviews</Link>
           </Navbar.Link>
+          <Navbar.Link>
+            <Link to="/blogs">Blogs</Link>
+          </Navbar.Link>
           {user?.uid ? (
             <>
               <Navbar.Link>

@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Login from "../Login/Login";
 import Register from "../Login/Register";
+import About from "../Pages/Blogs/About";
+import Blogs from "../Pages/Blogs/Blogs";
 import Details from "../Pages/Details/Details";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
           fetch(
             `https://wild-life-photography-server.vercel.app/edit/${params.id}`
           ),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },
