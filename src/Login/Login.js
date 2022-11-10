@@ -4,17 +4,22 @@ import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
   const { login, googleSignIn, setLoading } = useContext(AuthContext);
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from, { replace: true });
+        if (user?.uid) {
+          navigate(from, { replace: true });
+        }
       })
-      .catch((error) => console.error("login failed by google", error));
+      .catch((error) => console.error("login failed by google", error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // login with email password
@@ -24,10 +29,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    navigate(from, { replace: true });
     login(email, password)
       .then((result) => {
         const user = result.user;
+        if (user?.uid) {
+          navigate(from, { replace: true });
+        }
         console.log(user);
       })
       .catch((error) => console.error("login failed", error));

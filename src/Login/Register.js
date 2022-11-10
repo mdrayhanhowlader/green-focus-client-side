@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
-  const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateUser, setLoading } =
+    useContext(AuthContext);
 
   // google sign in
   const handleGoogleSignIn = () => {
@@ -13,6 +14,7 @@ const Register = () => {
         console.log(user);
       })
       .catch((error) => console.error("register failed by google", error));
+    setLoading(false);
   };
 
   // register with email password
@@ -36,6 +38,7 @@ const Register = () => {
         console.error("sign up failed with email password", error)
       );
     form.reset();
+    setLoading(false);
   };
 
   return (
