@@ -3,10 +3,13 @@ import Main from "../layout/Main";
 import Login from "../Login/Login";
 import Register from "../Login/Register";
 import Details from "../Pages/Details/Details";
+import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
-import ReviewForm from "../Pages/Reviews/ReviewForm";
+import Reviews from "../Pages/Reviews/Reviews";
+import Update from "../Pages/Reviews/Update";
 import AddService from "../Pages/Services/AddService";
 import Services from "../Pages/Services/Services";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,18 +19,26 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/home"),
+        loader: () =>
+          fetch("https://wild-life-photography-server.vercel.app/home"),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch("https://wild-life-photography-server.vercel.app/services"),
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://wild-life-photography-server.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/register",
@@ -41,7 +52,33 @@ const router = createBrowserRouter([
         path: "/addservice",
         element: <AddService></AddService>,
       },
+      {
+        path: "/reviews",
+        element: (
+          <PrivateRoute>
+            <Reviews></Reviews>
+          </PrivateRoute>
+        ),
+        // loader: () =>
+        //   fetch(""),
+      },
+      {
+        path: "/edit/:id",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://wild-life-photography-server.vercel.app/edit/${params.id}`
+          ),
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
   },
 ]);
 

@@ -8,9 +8,12 @@ const Details = () => {
   const { user } = useContext(AuthContext);
   const [allReviews, setAllReviews] = useState([]);
 
+  // console.log(allReviews);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const review = event.target.comment.value;
+    const form = event.target;
+    const review = form.comment.value;
     // console.log(comment);
     const reviews = {
       name: user.displayName,
@@ -19,7 +22,7 @@ const Details = () => {
       review: review,
       service: service,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://wild-life-photography-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -28,19 +31,20 @@ const Details = () => {
     })
       .then((res) => res.json())
       .catch((error) => console.error(error));
+    form.reset();
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://wild-life-photography-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setAllReviews(data);
         // console.log(data);
       });
-  }, []);
+  }, [allReviews]);
 
-  const selected = allReviews.filter((rv) => rv._id !== _id);
-  console.log("get filter", selected);
+  const selectedReviews = allReviews.filter((rv) => rv.service === service);
+
   return (
     <div>
       <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -73,7 +77,45 @@ const Details = () => {
       <div className="review-section w-4/5 mx-auto my-12">
         <h2 className="font-bold text-3xl text-cyan-500">Reviews</h2>
       </div>
-      <div></div>
+      <div className="reviews w-4/5 mx-auto mb-40">
+        {selectedReviews.map((sr) => (
+          <>
+            <div key={sr.service} className="overflow-x-auto w-full">
+              <table className="table w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Review</th>
+                    <th>Edit/Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img src={sr?.photo} alt="" />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{sr?.name}</div>
+                          <div className="text-sm opacity-50">{sr?.email}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{sr?.review}</td>
+                    <th>
+                      <button className="btn btn-ghost btn-xs">details</button>
+                    </th>
+                  </tr>
+                </tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+          </>
+        ))}
+      </div>
     </div>
   );
 };

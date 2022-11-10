@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
-  const { login, googleSignIn } = useContext(AuthContext);
+  const { login, googleSignIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error("login failed by google", error));
   };
@@ -20,6 +24,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    navigate(from, { replace: true });
     login(email, password)
       .then((result) => {
         const user = result.user;
@@ -27,6 +32,7 @@ const Login = () => {
       })
       .catch((error) => console.error("login failed", error));
     form.reset();
+    setLoading(false);
   };
   return (
     <div>
