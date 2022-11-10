@@ -10,7 +10,7 @@ const Bottom = () => {
             href="https://flowbite.com"
             src="https://flowbite.com/docs/images/logo.svg"
             alt="Flowbite Logo"
-            name="Flowbite"
+            name="Green Focus"
           />
           <Footer.LinkGroup>
             <Footer.Link href="#">About</Footer.Link>
@@ -20,7 +20,7 @@ const Bottom = () => {
           </Footer.LinkGroup>
         </div>
         <Footer.Divider />
-        <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+        <Footer.Copyright to="/" by="Green Focus™" year={2022} />
       </div>
     </Footer>
   );

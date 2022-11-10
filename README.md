@@ -1,3 +1,19 @@
+# First I installed react then i connected with github
+
+# then i installed tailwind css daisy ui and flowbite
+
+# firebase installed for authentication and connected with .env.local
+
+# mongo db connected and crud operation updated with this website
+
+# react router used
+
+# google and email signup added
+
+# react photo view added
+
+# review page my review page all updated
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +84,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # b6a11-service-review-client-side-mdrayhanhowlader
