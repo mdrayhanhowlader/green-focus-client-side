@@ -56,6 +56,7 @@ const Register = () => {
                   name="name"
                   placeholder="name"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -67,6 +68,7 @@ const Register = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -78,6 +80,7 @@ const Register = () => {
                   name="photoURL"
                   placeholder="photo url"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -89,18 +92,11 @@ const Register = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
-              </div>
-              <div className="form-control mt-6">
-                <button
-                  onClick={handleGoogleSignIn}
-                  className="btn btn-primary"
-                >
-                  Google
-                </button>
               </div>
               <label className="label">
                 <Link to="/login" className="label-text-alt link link-hover">
@@ -108,6 +104,11 @@ const Register = () => {
                 </Link>
               </label>
             </form>
+            <div className="form-control mb-4 w-4/5 mx-auto">
+              <button onClick={handleGoogleSignIn} className="btn btn-primary">
+                Google
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -60,11 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/edit/:id",
-        element: (
-          <PrivateRoute>
-            <Update></Update>
-          </PrivateRoute>
-        ),
+        element: <Update></Update>,
         loader: ({ params }) =>
           fetch(
             `https://wild-life-photography-server.vercel.app/edit/${params.id}`

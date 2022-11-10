@@ -11,15 +11,13 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         if (user?.uid) {
           navigate(from, { replace: true });
         }
       })
       .catch((error) => console.error("login failed by google", error))
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => {});
+    setLoading(false);
   };
 
   // login with email password
@@ -28,18 +26,20 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     login(email, password)
       .then((result) => {
         const user = result.user;
-        if (user?.uid) {
+        form.reset();
+        if (user.email) {
           navigate(from, { replace: true });
+        } else {
+          console.log("please provide email");
         }
-        console.log(user);
       })
-      .catch((error) => console.error("login failed", error));
-    form.reset();
-    setLoading(false);
+      .catch((error) => console.error("login failed", error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
   return (
     <div>
@@ -56,6 +56,7 @@ const Login = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -67,6 +68,7 @@ const Login = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control mt-6">

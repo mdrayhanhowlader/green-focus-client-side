@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Circles } from "react-loader-spinner";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
@@ -7,9 +8,18 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <Spinner animation="border" variant="primary" />;
+    return (
+      <Circles
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    );
   }
-
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   }
