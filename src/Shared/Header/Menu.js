@@ -11,12 +11,7 @@ const Menu = () => {
   return (
     <div>
       <Navbar fluid={true} rounded={true}>
-        <Navbar.Brand href="https://flowbite.com/">
-          {/* <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          /> */}
+        <Navbar.Brand href="/">
           <span className="self-center whitespace-nowrap text-xl md:text-3xl font-semibold text-green-700 dark:text-white">
             Green Focus
           </span>
@@ -41,9 +36,8 @@ const Menu = () => {
                 </span>
               </Dropdown.Header>
               <Dropdown.Item>
-                <Link to="/">Dashboard</Link>
+                <Link to="/reviews">My Review</Link>
               </Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
               <Dropdown.Item>
                 <Link to="/addservice">Add Service</Link>
               </Dropdown.Item>
@@ -51,18 +45,7 @@ const Menu = () => {
               <Dropdown.Item onClick={handleSignOut}>Sign out</Dropdown.Item>
             </Dropdown>
           ) : (
-            <>
-              <Link to="/login">
-                <button className="bg-cyan-700 px-6 py-2 text-slate-50 rounded-lg">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button className="bg-cyan-700 px-6 py-2 text-slate-50 rounded-lg">
-                  Register
-                </button>
-              </Link>
-            </>
+            <></>
           )}
           <Navbar.Toggle />
         </div>
@@ -76,6 +59,22 @@ const Menu = () => {
           <Navbar.Link>
             <Link to="/reviews">Reviews</Link>
           </Navbar.Link>
+          {user?.uid ? (
+            <>
+              <Navbar.Link>
+                <Link onClick={handleSignOut}>Sign Out</Link>
+              </Navbar.Link>
+            </>
+          ) : (
+            <>
+              <Navbar.Link>
+                <Link to="/login">Login</Link>
+              </Navbar.Link>
+              <Navbar.Link>
+                <Link to="/register">Register</Link>
+              </Navbar.Link>
+            </>
+          )}
         </Navbar.Collapse>
       </Navbar>
     </div>

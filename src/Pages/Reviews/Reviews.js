@@ -32,51 +32,56 @@ const Reviews = () => {
         My Reviews
       </h2>
       <div className="w-4/5 mx-auto mb-40 mt-12">
-        {getReviews.map((review) => (
-          <>
-            <div className="overflow-x-auto">
-              <table className="table table-zebra w-full">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Review</th>
-                    <th>Edit/Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{review.name}</td>
-                    <td>{review.review}</td>
-                    <td>
-                      <Link to={`/edit/${review?._id}`}>
-                        <button className="btn btn-outline btn-info">
-                          Update
-                        </button>
-                      </Link>
-                      <button className="btn btn-square btn-outline">
-                        <svg
-                          onClick={() => handleDeleteReview(review._id)}
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12"
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Review</th>
+                <th>Edit/Delete</th>
+              </tr>
+            </thead>
+            {getReviews.map((review) => (
+              <tbody>
+                <tr>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img
+                            src={review?.photo}
+                            alt="Avatar Tailwind CSS Component"
                           />
-                        </svg>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </>
-        ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{review?.name}</div>
+                        <div className="text-sm opacity-50">
+                          {review?.email}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{review?.review}</td>
+                  <td>
+                    <Link
+                      to={`/edit/${review?._id}`}
+                      className="text-green-700 mr-2"
+                    >
+                      Update
+                    </Link>
+                    <Link
+                      onClick={() => handleDeleteReview(review._id)}
+                      className="text-red-800"
+                    >
+                      Delete
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+        </div>
       </div>
     </div>
   );

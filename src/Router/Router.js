@@ -30,11 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: (
-          <PrivateRoute>
-            <Details></Details>
-          </PrivateRoute>
-        ),
+        element: <Details></Details>,
         loader: ({ params }) =>
           fetch(
             `https://wild-life-photography-server.vercel.app/details/${params.id}`
