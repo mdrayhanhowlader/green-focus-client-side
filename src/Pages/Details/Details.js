@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "./../../Hooks/useTitle";
 
 const Details = () => {
   const photoDetails = useLoaderData();
@@ -9,6 +10,7 @@ const Details = () => {
   const [allReviews, setAllReviews] = useState([]);
 
   // console.log(allReviews);
+  useTitle("Details");
 
   const handleSubmit = (event) => {
     event.preventDefault();

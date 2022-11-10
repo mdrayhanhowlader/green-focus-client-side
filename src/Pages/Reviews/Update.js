@@ -1,9 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "./../../Hooks/useTitle";
 
 const Update = () => {
   const { review, _id } = useLoaderData();
-
+  useTitle("UPDATE");
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;

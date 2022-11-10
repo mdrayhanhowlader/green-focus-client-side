@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "./../../Hooks/useTitle";
 
 const Reviews = () => {
   const { user } = useContext(AuthContext);
   const [deletedItems, setDeletedItems] = useState([]);
   const [reviews, setReviews] = useState([]);
+  useTitle("REVIEWS");
   useEffect(() => {
     fetch("https://wild-life-photography-server.vercel.app/reviews")
       .then((res) => res.json())

@@ -1,9 +1,11 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ServicesCard from "./ServicesCard";
+import useTitle from "./../../Hooks/useTitle";
 
 const Services = () => {
   const services = useLoaderData([]);
+  useTitle("SERVICES");
   return (
     <div>
       <h2 className="text-4xl text-center font-semibold my-8 text-cyan-300">

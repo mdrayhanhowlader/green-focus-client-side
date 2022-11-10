@@ -5,9 +5,11 @@ import Banner from "./Banner";
 import Dreams from "./Dreams";
 import HomeService from "./HomeService";
 import PhotoLibrary from "./PhotoLibrary";
+import useTitle from "./../../Hooks/useTitle";
 
 const Home = () => {
   const home = useLoaderData([]);
+  useTitle("Home");
   return (
     <div>
       <Banner></Banner>

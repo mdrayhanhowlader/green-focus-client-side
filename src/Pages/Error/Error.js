@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "./../../Hooks/useTitle";
 
 const Error = () => {
+  useTitle("404 NOT FOUND");
   return (
     <div>
       <div className="w-4/5 mx-auto text-center">

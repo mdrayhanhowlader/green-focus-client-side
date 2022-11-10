@@ -7,19 +7,19 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
-  if (loading) {
-    return (
-      <Circles
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <Circles
+  //       height="80"
+  //       width="80"
+  //       color="#4fa94d"
+  //       ariaLabel="circles-loading"
+  //       wrapperStyle={{}}
+  //       wrapperClass=""
+  //       visible={true}
+  //     />
+  //   );
+  // }
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   }
