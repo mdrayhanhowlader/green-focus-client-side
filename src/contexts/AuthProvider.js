@@ -1,9 +1,11 @@
 import {
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPhoneNumber,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -14,6 +16,7 @@ import app from "./../firebase/firebase.config";
 const auth = getAuth(app);
 export const AuthContext = createContext(auth);
 const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -23,6 +26,16 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
+  };
+
+  // phone sign in
+  const phoneSignIn = (phoneNumber, appVerifier) => {
+    return signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+  };
+
+  // facebook sign in
+  const facebookSignIn = () => {
+    return signInWithPopup(auth, facebookProvider);
   };
 
   // create user
@@ -69,6 +82,8 @@ const AuthProvider = ({ children }) => {
     login,
     logOut,
     updateUser,
+    phoneSignIn,
+    facebookSignIn,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

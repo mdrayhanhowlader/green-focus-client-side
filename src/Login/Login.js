@@ -3,7 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
-  const { login, googleSignIn, setLoading } = useContext(AuthContext);
+  const { login, googleSignIn, setLoading, phoneSignIn, facebookSignIn } =
+    useContext(AuthContext);
+  const appVerifier = window.recaptchaVerifier;
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -39,6 +41,31 @@ const Login = () => {
       .catch((error) => console.error("login failed", error))
       .finally(() => {
         setLoading(false);
+      });
+  };
+
+  // phone sign in
+  const handlePhoneSignIn = (e) => {
+    e.preventDefault();
+    const phoneNumber = e.target.number.value;
+    console.log(phoneNumber);
+    phoneSignIn(phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // facebook signin
+  const handleFacebookSignIn = () => {
+    facebookSignIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (
@@ -84,6 +111,22 @@ const Login = () => {
               <button onClick={handleGoogleSignIn} className="btn btn-primary">
                 Google
               </button>
+            </div>
+            <div className="form-control mb-6 w-4/5 mx-auto">
+              <button
+                onClick={handleFacebookSignIn}
+                className="btn btn-primary"
+              >
+                Facebook
+              </button>
+            </div>
+            <div className="form-control mb-6 w-4/5 mx-auto">
+              <form onSubmit={handlePhoneSignIn} action="">
+                <input className="mb-4" name="number" type="text" />
+                <button type="submit" className="btn btn-primary">
+                  Phone Login
+                </button>
+              </form>
             </div>
           </div>
         </div>

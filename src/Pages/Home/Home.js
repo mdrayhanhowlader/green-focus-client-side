@@ -6,6 +6,11 @@ import Dreams from "./Dreams";
 import HomeService from "./HomeService";
 import PhotoLibrary from "./PhotoLibrary";
 import useTitle from "./../../Hooks/useTitle";
+import Specialist from "./Specialist";
+import LatestWorks from "./LatestWorks";
+import LittleAbout from "./LittleAbout";
+import InstagramGallary from "./InstagramGallary";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   const home = useLoaderData([]);
@@ -25,6 +30,7 @@ const Home = () => {
           </Button>
         </Link>
       </div>
+      <Specialist />
       <div className="About w-4/5 mx-auto">
         <Dreams></Dreams>
       </div>
@@ -34,6 +40,10 @@ const Home = () => {
         </h2>
         <PhotoLibrary></PhotoLibrary>
       </div>
+      <LatestWorks />
+      <LittleAbout />
+      <InstagramGallary />
+      <Newsletter />
     </div>
   );
 };
