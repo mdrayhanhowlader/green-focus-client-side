@@ -9,9 +9,9 @@ const Bottom = () => {
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand
-            href="https://flowbite.com"
+            href="https://github.com/mdrayhanhowlader"
             src={img}
-            alt="Flowbite Logo"
+            alt="Green Focus"
             name="Green Focus"
           />
           <Footer.LinkGroup>

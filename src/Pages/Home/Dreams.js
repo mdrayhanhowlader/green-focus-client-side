@@ -2,15 +2,52 @@ import React from "react";
 
 const Dreams = () => {
   return (
-    <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Dream story!</h1>
-            <p className="py-6">
-              I love photography. this was my dreams. i had a camera in
-              childhood. i loved to take photo with my camera.
-            </p>
+    <div className="my-20">
+      <div className="w-11/12 mx-auto">
+        <div className="grid grid-cols-2">
+          <div>
+            <img
+              src="http://demo.enpek.com/html-templates/dye/assets/images/banner/banner-small-4.jpg"
+              alt=""
+            />
+          </div>
+          <div className="bg-red-700 text-white">
+            <div className="p-4">
+              <h2 className="text-3xl text-center pb-2 mt-8">Abstract Print</h2>
+              <p className="text-center py-2">
+                A clean and modern take on abstract prints design take on
+                abstract prints desig take on abstract prints design
+              </p>
+              <div className="text-center">
+                <button className="text-white bg-black px-6 py-2">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2">
+          <div className="bg-red-700 text-white">
+            <div className="p-4">
+              <h2 className="text-3xl text-center pb-2 mt-8">
+                Illustrated Paints
+              </h2>
+              <p className="text-center py-2">
+                A clean and modern take on abstract prints design take on
+                abstract prints desig take on abstract prints design
+              </p>
+              <div className="text-center">
+                <button className="text-white bg-black px-6 py-2">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              src="http://demo.enpek.com/html-templates/dye/assets/images/banner/banner-small-5.jpg"
+              alt=""
+            />
           </div>
         </div>
       </div>
