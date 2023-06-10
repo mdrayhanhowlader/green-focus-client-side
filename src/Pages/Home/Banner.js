@@ -7,23 +7,24 @@ const Banner = () => {
       <div className="h-4/5 sm:h-4/5 md:h-screen">
         <Carousel>
           <img
-            src="https://images.pexels.com/photos/6404904/pexels-photo-6404904.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="w-full"
+            src="https://images.pexels.com/photos/1196121/pexels-photo-1196121.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="..."
           />
           <img
-            src="https://images.pexels.com/photos/70080/elephant-africa-african-elephant-kenya-70080.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="https://images.pexels.com/photos/2229671/pexels-photo-2229671.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="..."
           />
           <img
-            src="https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="http://demo.enpek.com/html-templates/dye/assets/images/slider/slider-3.jpg"
             alt="..."
           />
           <img
-            src="https://images.pexels.com/photos/2541239/pexels-photo-2541239.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="http://demo.enpek.com/html-templates/dye/assets/images/slider/slider-1.jpg"
             alt="..."
           />
           <img
-            src="https://images.pexels.com/photos/321552/pexels-photo-321552.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="http://demo.enpek.com/html-templates/dye/assets/images/slider/slider-2.jpg"
             alt="..."
           />
         </Carousel>

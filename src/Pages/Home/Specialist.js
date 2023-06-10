@@ -32,7 +32,7 @@ const Specialist = () => {
             className="w-full h-full"
           />
           <span className="absolute bottom-6 right-0 text-lg font-semibold text-white bg-gray-800 bg-opacity-50 py-2 px-4">
-            Fashion Photography
+            Food Photography
           </span>
         </div>
         <div className="relative">
@@ -42,7 +42,7 @@ const Specialist = () => {
             className="w-full h-full"
           />
           <span className="absolute bottom-6 right-0 text-lg font-semibold text-white bg-gray-800 bg-opacity-50 py-2 px-4">
-            Fashion Photography
+            Wedding Photography
           </span>
         </div>
       </div>
